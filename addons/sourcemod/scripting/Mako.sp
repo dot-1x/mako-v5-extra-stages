@@ -10,7 +10,7 @@
 public Plugin myinfo =
 {
 	name        = "MakoVoteSystem",
-	author 	    = "originally by Neon, csgo by .1x",
+	author 	    = "Neon, .1x (csgo)",
 	description = "MakoVoteSystem",
 	version     = "2",
 	url         = "https://steamcommunity.com/id/dot_1x"
