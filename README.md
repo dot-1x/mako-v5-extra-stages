@@ -8,3 +8,6 @@ or adding stage
 sm_makovote  (start vote for next round)  
 sm_startrace  (start race mode)  
 sm_endrace  (end race mode)  
+
+note that these commands are server's command  
+so you must execute it from server console  
