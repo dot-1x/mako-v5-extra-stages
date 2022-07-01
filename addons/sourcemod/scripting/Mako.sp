@@ -12,14 +12,14 @@ public Plugin myinfo =
 	name        = "MakoVoteSystem",
 	author 	    = "Neon, .1x (csgo)",
 	description = "MakoVoteSystem",
-	version     = "2.1",
+	version     = "2.2",
 	url         = "https://steamcommunity.com/id/dot_1x"
 }
 
-#define TOTALSTAGE 6
+#define TOTALSTAGE 7
 
-static char g_sStagesList[TOTALSTAGE][256] = {"EXTREME II", "RMZS", "HELLZ", "ZOMBIEDEN", "RACE", "EXTREME II (HealTima)"}; // insert stage name here
-static int g_iStageButtonId[TOTALSTAGE] = {140676, 100002, 100000, 100001, 100004, 100005}; // insert button hammerid here, the index must match of stage name
+static char g_sStagesList[TOTALSTAGE][256] = {"EXTREME II", "RMZS", "HELLZ", "ZOMBIEDEN", "ZEDDYS", "RACE", "EXTREME II (HealTima)"}; // insert stage name here
+static int g_iStageButtonId[TOTALSTAGE] = {140676, 100002, 100000, 100001, 100003, 100004, 100005}; // insert button hammerid here, the index must match of stage name
 
 ArrayList g_aStageList, g_aWinner;
 Menu g_mVoteMenu;
@@ -83,6 +83,7 @@ public Action Command_RaceMode(int args){
 	g_aWinner = CreateArray(iCells);
 	if(g_aWinner.Length > 1)
 		g_aWinner.Clear();
+	
 } 
 public void Race_PlayerWinner(const char[] output, int caller, int activator, float delay){
 	g_aWinner.Push(activator);
@@ -102,6 +103,7 @@ public Action Command_EndRace(int args){
 	CreateTimer(5.0, tTimer_EndRace);
 	LogAction(-1, -1, "Mako race ended");
 	g_bIsRaceMode = false;
+	
 }
 Action tTimer_EndRace(Handle Timer){
 	ServerCommand("sm_slay @t");
@@ -246,7 +248,6 @@ public int hVoteMenu(Menu menu, MenuAction action, int param1, int param2){
 			}
 		}
 	}
-	return 0;
 }
 public void hMenu_Result(Menu menu, int num_votes, int num_clients, const int[][] client_info, int num_items, const int[][] item_info){
 	int highest_votes = item_info[0][VOTEINFO_ITEM_VOTES];
